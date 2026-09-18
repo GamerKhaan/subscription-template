@@ -4,6 +4,11 @@ on:
     release:
         types: [published]
     workflow_dispatch:
+        inputs:
+            tag:
+                description: Existing release tag to attach assets to (optional)
+                required: false
+                type: string
 
 env:
     DEFAULT_FALLBACK_LANGUAGE: fa
@@ -56,8 +61,6 @@ jobs:
               uses: oven-sh/setup-bun@v2
               with:
                   bun-version: latest
-                  # if you want to disable cache explicitly:
-                  # no-cache: true
 
             - name: Install dependencies
               run: bun install --frozen-lockfile
@@ -86,7 +89,7 @@ jobs:
     publish:
         name: Attach assets to release
         needs: build
-        if: github.event_name == 'release'
+        if: github.event_name == 'release' || inputs.tag != ''
         runs-on: ubuntu-latest
         steps:
             - name: Download all artifacts
@@ -97,4 +100,5 @@ jobs:
             - name: Publish release assets
               uses: softprops/action-gh-release@v2
               with:
+                  tag_name: ${{ github.event.release.tag_name || inputs.tag }}
                   files: release-assets/**/*.html

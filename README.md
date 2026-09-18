@@ -3,8 +3,8 @@
 Responsive subscription page template for PasarGuard.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/PasarGuard/subscription-template/refs/heads/main/screenshots/en.png" alt="English UI" width="40%">
-  <img src="https://raw.githubusercontent.com/PasarGuard/subscription-template/refs/heads/main/screenshots/fa.png" alt="Persian UI" width="30%">
+  <img src="https://raw.githubusercontent.com/GamerKhaan/subscription-template/refs/heads/main/screenshots/en.png" alt="English UI" width="40%">
+  <img src="https://raw.githubusercontent.com/GamerKhaan/subscription-template/refs/heads/main/screenshots/fa.png" alt="Persian UI" width="30%">
 </p>
 
 ## Features
@@ -30,7 +30,7 @@ Responsive subscription page template for PasarGuard.
 Run installer script (choose your fallback language):
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/PasarGuard/subscription-template/main/install.sh | sudo bash -s -- --lang fa
+curl -fsSL https://raw.githubusercontent.com/GamerKhaan/subscription-template/main/install.sh | sudo bash -s -- --lang fa
 ```
 
 Supported values for `--lang`: `en`, `fa`, `zh`, `ru`
@@ -44,7 +44,7 @@ To install a specific release, add `--version <tag>`.
 ```sh
 sudo mkdir -p /var/lib/pasarguard/templates/subscription
 sudo wget -O /var/lib/pasarguard/templates/subscription/index.html \
-https://github.com/PasarGuard/subscription-template/releases/latest/download/index.html
+https://github.com/GamerKhaan/subscription-template/releases/latest/download/index.html
 ```
 
 2. Configure PasarGuard in `/opt/pasarguard/.env`:
@@ -63,7 +63,7 @@ pasarguard restart
 ## Build From Source
 
 ```sh
-git clone https://github.com/PasarGuard/subscription-template.git
+git clone https://github.com/GamerKhaan/subscription-template.git
 cd subscription-template
 bun install
 bun run build
